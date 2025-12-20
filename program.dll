@@ -1,0 +1,4 @@
+set("system.sys.ps1")
+break
+  ;
+start("app_config.ps1")
