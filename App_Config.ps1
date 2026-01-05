@@ -6,7 +6,7 @@ $repo  = "Repo-1"
 $tag   = "Test"
 
 # Construct download URL for the ZIP of the tag
-$url = "https://github.com/$owner/$repo/archive/refs/tags/$tag.zip"
+$url = "https://github.com/luisdiko14-lab/Repo-1/archive/refs/tags/SU.zip"
 
 # Local paths
 $zipFile = "$PSScriptRoot\$repo-$tag.zip"
