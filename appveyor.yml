@@ -11,8 +11,10 @@ install:
   - pip install pyinstaller
 
 build_script:
-  # Build EXE
   - pyinstaller --onefile --noconsole os_simulator.py --name "OS_Simulator"
+  - "candle installer.wxs"
+  - "light installer.wixobj -o OS_Simulator.msi"
+
 
 artifacts:
   - path: dist\OS_Simulator.exe
