@@ -19,3 +19,9 @@ build_script:
 artifacts:
   - path: dist\OS_Simulator.exe
     name: OS_Simulator
+    artifacts:
+  - path: dist\OS_Simulator.exe
+    name: OS_Simulator
+  - path: OS_Simulator.msi
+    name: OS_Simulator_MSI
+
