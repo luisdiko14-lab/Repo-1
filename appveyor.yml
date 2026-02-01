@@ -1,0 +1,19 @@
+version: 1.0.{build}
+
+image: Visual Studio 2022
+
+build:
+  project: none  # we’re using Python, no VS project
+
+install:
+  - ps: choco install python --version=3.11.10 -y
+  - ps: refreshenv
+  - pip install pyinstaller
+
+build_script:
+  # Build EXE
+  - pyinstaller --onefile --noconsole os_simulator.py --name "OS_Simulator"
+
+artifacts:
+  - path: dist\OS_Simulator.exe
+    name: OS_Simulator
