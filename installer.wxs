@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <Product
+    Id="*"
+    Name="OS Simulator"
+    Language="1033"
+    Version="1.0.0"
+    Manufacturer="Luis"
+    UpgradeCode="abcc78ae-01d0-4821-869e-e03b95f5d6ff">
+
+    <Package
+      InstallerVersion="500"
+      Compressed="yes"
+      InstallScope="perMachine" />
+
+    <MediaTemplate />
+
+    <!-- Installation Directory -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="OS Simulator">
+
+          <!-- Main Executable -->
+          <Component
+            Id="MainExecutable"
+            Guid="f7613765-0c27-48bc-ac2e-067a834ccdac">
+
+            <File
+              Source="dist\OS_Simulator.exe"
+              KeyPath="yes" />
+
+          </Component>
+
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <!-- Feature -->
+    <Feature Id="MainFeature" Title="OS Simulator" Level="1">
+      <ComponentRef Id="MainExecutable" />
+    </Feature>
+
+    <!-- Optional: Add desktop shortcut -->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="ShortcutComponent" Guid="f7613765-0c27-48bc-ac2e-067a834ccdac">
+        <Shortcut
+          Id="DesktopShortcut"
+          Name="OS Simulator"
+          Target="[INSTALLFOLDER]OS_Simulator.exe"
+          WorkingDirectory="INSTALLFOLDER"
+          Icon="icon.ico" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\OSSimulator"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+  </Product>
+
+</Wix>
